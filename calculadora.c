@@ -11,7 +11,7 @@ int main() {
     int operacao, valido, continuar;
     float a, b;
 
-    // setlocale(LC_ALL, "Portuguese");
+    setlocale(LC_CTYPE, "Portuguese");
 
     wprintf(L"\nBem-vindo à calculadora escrita em C!\n");
 
@@ -28,6 +28,9 @@ int main() {
 
         if (endptr == primeiro_numero) {
             wprintf(L"\nValor inválido. Por favor, digite um número inteiro ou decimal.\n");
+            valido = 0;
+        } else if (strchr(primeiro_numero, ',') != NULL) {
+            printf("\nPor favor, separe a casa decimal com o ponto.\n");
             valido = 0;
         } else {
             valido = 1;
@@ -65,6 +68,9 @@ int main() {
 
         if (endptr == segundo_numero) {
             wprintf(L"\nValor inválido. Por favor, digite um número inteiro ou decimal.\n");
+            valido = 0;
+        } else if (strchr(segundo_numero, ',') != NULL) {
+            printf("\nPor favor, separe a casa decimal com o ponto.\n");
             valido = 0;
         } else {
             valido = 1;
