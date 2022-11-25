@@ -42,7 +42,7 @@ int main() {
     do {
         wprintf(L"\nQue operação deseja realizar?\n\n1 - Soma\n2 - Subtração\n3 - Multiplicação\n4 - Divisão\n5 - Porcentagem\n6 - Potenciação\n\nOpção: ");
         fgets(opcao_menu, 1024, stdin);
-        operacao = strtol(opcao_menu, &endptr,  10);
+        operacao = strtol(opcao_menu, &endptr,  10); /* A função strtol() funciona da mesma forma que a função strtof(), mas converte para long ao invés de float. */
 
         if (opcao_menu == endptr || operacao < 1 || operacao > 6) { /* Além de checar se foi obtido um valor válido (float), verifica também se a variavel "operacao" contém um número disponível no menu. */
             wprintf(L"\nOpção inválida. Por favor, digite um número do menu.\n");
